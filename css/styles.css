@@ -290,9 +290,29 @@ img {
 }
 .work-list {
 	display: flex;
+	/* gap: 30px;
+	justify-content: space-between; */
+}
+.w-item {
+	position: relative;
 }
 .w-item:not(:last-child) {
 	margin-right: 30px;
+}
+.w-subtitle {
+	display: flex;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 70px;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	font-weight: 700;
+	line-height: 1.14;
+	color: var(--white-text-color);
+	background-color: rgba(47, 48, 58, 0.8);
 }
 
 /* team */
@@ -509,6 +529,32 @@ img {
 	width: 370px;
 	margin: 15px;
 }
+.p-box {
+	position: relative;
+	overflow: hidden;
+}
+.p-overlay {
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	transform: translateY(100%);
+	transition: transform 250ms ease;
+	background-color: rgba(33, 150, 243, 0.9);
+}
+.text-overlay {
+	width: 322px;
+	color: var(--white-text-color);
+	font-size: 18px;
+	line-height: 1.56;
+}
+.project-link:hover .p-overlay {
+	transform: translateY(0);
+}
 .project-link {
 	display: block;
 }
@@ -533,5 +579,6 @@ img {
 }
 .p-text {
 	font-size: 16px;
+	color: var(--text-color);
 	line-height: 1.88;
 }
