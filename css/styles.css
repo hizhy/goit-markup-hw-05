@@ -622,12 +622,14 @@ img {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
 	background-color: #ffffff;
 	width: 528px;
 	height: 581px;
 	border-radius: 4px;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+	transform: translate(-50%, -50%) scale(1);
+	transition: transform var(--anim);
 }
 .close-button {
 	position: absolute;
@@ -639,9 +641,8 @@ img {
 	top: 8px;
 	right: 8px;
 	padding: 0;
-	border-width: 1px;
 	border-radius: 50%;
-	border-color: rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	background-color: inherit;
 	cursor: pointer;
 }
@@ -649,4 +650,7 @@ img {
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+	transform: translate(-50%, -50%) scale(0.5);
 }
