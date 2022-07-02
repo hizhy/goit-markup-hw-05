@@ -23,7 +23,10 @@ html {
 	--sec-bg-color: #f5f4fa;
 	--accent-color: #2196f3;
 	--icon-fill-one: #afb1b8;
+
+	--anim: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 body {
 	/* margin: 0; */
 	background-color: var(--bg-color);
@@ -50,6 +53,11 @@ img {
 }
 
 /* common styles */
+
+.no-scroll {
+	overflow: hidden;
+}
+
 .container {
 	width: 1200px;
 	padding-left: 15px;
@@ -65,6 +73,7 @@ img {
 .link {
 	text-decoration: none;
 	color: var(--text-color);
+	transition: color var(--anim);
 }
 /* .link:hover,
 .link:focus {
@@ -157,7 +166,7 @@ img {
 	width: 100%;
 	height: 4px;
 	position: absolute;
-	right: 0;
+	left: 0;
 	bottom: -1px;
 	border-radius: 2px;
 	background-color: var(--accent-color);
@@ -165,6 +174,7 @@ img {
 .contact-icon {
 	fill: var(--text-color);
 	margin-right: 10px;
+	transition: fill var(--anim);
 }
 .link:hover .contact-icon,
 .link:focus .contact-icon {
@@ -210,6 +220,8 @@ img {
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 	border-radius: 4px;
 	cursor: pointer;
+
+	transition: background-color var(--anim);
 }
 .hero-button:hover,
 .hero-button:focus {
@@ -302,7 +314,7 @@ img {
 .w-subtitle {
 	display: flex;
 	position: absolute;
-	right: 0;
+	left: 0;
 	bottom: 0;
 	width: 100%;
 	height: 70px;
@@ -370,6 +382,8 @@ img {
 	height: 44px;
 	color: var(--icon-fill-one);
 	border-radius: 50%;
+
+	transition: color var(--anim), background-color var(--anim);
 }
 .socials-link:hover,
 .socials-link:focus {
@@ -406,6 +420,8 @@ img {
 	color: var(--icon-fill-one);
 	border: 1px solid var(--icon-fill-one);
 	border-radius: 4px;
+
+	transition: border var(--anim), color var(--anim);
 }
 .c-icon {
 	fill: currentColor;
@@ -468,6 +484,7 @@ img {
 	color: #ffffff;
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 50%;
+	transition: color var(--anim), background-color var(--anim);
 }
 .socials-f-link:hover,
 .socials-f-link:focus {
@@ -494,7 +511,7 @@ img {
 .button {
 	padding: 6px 22px;
 	color: var(--sec-text-color);
-	background: #f5f4fa;
+	background-color: #f5f4fa;
 	font-family: inherit;
 	font-weight: 500;
 	font-size: 16px;
@@ -503,6 +520,8 @@ img {
 	border-radius: 4px;
 	cursor: pointer;
 	text-align: center;
+
+	transition: background-color var(--anim), color var(--anim), box-shadow var(--anim);
 }
 .button:hover,
 .button:focus {
@@ -543,7 +562,7 @@ img {
 	left: 0;
 	top: 0;
 	transform: translateY(100%);
-	transition: transform 250ms ease;
+	transition: transform var(--anim);
 	background-color: rgba(33, 150, 243, 0.9);
 }
 .text-overlay {
@@ -557,6 +576,8 @@ img {
 }
 .project-link {
 	display: block;
+
+	transition: box-shadow var(--anim);
 }
 .project-link:hover,
 .project-link:focus {
@@ -581,4 +602,51 @@ img {
 	font-size: 16px;
 	color: var(--text-color);
 	line-height: 1.88;
+}
+
+/* modal window */
+.backdrop {
+	position: fixed;
+	left: 0;
+	top: 0;
+	opacity: 1;
+	visibility: visible;
+	pointer-events: initial;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+
+	transition: opacity var(--anim), visibility var(--anim);
+}
+.modal {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	width: 528px;
+	height: 581px;
+	border-radius: 4px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.close-button {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	top: 8px;
+	right: 8px;
+	padding: 0;
+	border-width: 1px;
+	border-radius: 50%;
+	border-color: rgba(0, 0, 0, 0.1);
+	background-color: inherit;
+	cursor: pointer;
+}
+.backdrop.is-hidden {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
 }

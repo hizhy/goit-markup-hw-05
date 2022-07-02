@@ -15,7 +15,7 @@
 		<title>Студія</title>
 	</head>
 
-	<body>
+	<body data-body>
 		<!-- Хедер -->
 		<header class="header">
 			<div class="header-container container">
@@ -56,7 +56,7 @@
 						<br />
 						для вашого бізнесу
 					</h1>
-					<button class="hero-button" type="button">Замовити послугу</button>
+					<button class="hero-button" type="button" data-modal-open>Замовити послугу</button>
 				</div>
 			</section>
 			<!-- розділ Особливості -->
@@ -487,5 +487,17 @@
 				</div>
 			</div>
 		</footer>
+
+		<!-- Модальне вікно -->
+		<div class="backdrop is-hidden" data-modal>
+			<div class="modal">
+				<button class="close-button" data-modal-close>
+					<svg width="18" height="18">
+						<use href="./images/sprite.svg#icon-close"></use>
+					</svg>
+				</button>
+			</div>
+		</div>
+		<script src="./js/modal.js"></script>
 	</body>
 </html>
